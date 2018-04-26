@@ -57,9 +57,8 @@
                         <label for="icon_area_code">Código de área</label>
                         </div>
                         <div class="input-field col s12 m6 l4">
-                        <i class="material-icons prefix">cake</i>
-                        <input type="date" class="datepicker" v-model="user.birthdate" required>                        
-                        <label for="icon_birthdate">Fecha de nacimiento</label>
+                        <i class="material-icons">cake</i>
+                        <date-picker v-model="user.birthdate" format="dd/MM/yyyy" editable lang="es" placeholder="Fecha de nacimiento" required></date-picker>                                             
                         </div>
                                                                                 
                     </div>
@@ -81,10 +80,23 @@
 </template>
 
 <script>
+
+import DatePicker from 'vue2-datepicker'
+
     export default {
+
+        components: { DatePicker },
+
         data() {
             return {
-                user: {}
+                user: {},                    
+            shortcuts: [
+                {
+               
+                start: new Date(),
+                end: new Date()
+                }
+            ]                
             }
         },
 
@@ -96,8 +108,7 @@
                     })
                     .catch(err => console.log(err));                
             }
-        }       
+        }    
     }
-    
     
 </script>

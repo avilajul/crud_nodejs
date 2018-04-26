@@ -1,7 +1,7 @@
 <template>
     <div>
         <h3 class="center-align">Listado de usuarios</h3>
-        <table class="striped responsive-table">
+        <table class="striped centered responsive-table">
             <thead>
                 <tr>
                     <th>Identificador</th>
@@ -12,7 +12,7 @@
                     <th>Estado</th>
                     <th>País</th>
                     <th>Teléfono</th>
-                    <th>Codigo de área</th>
+                    <th>Código de área</th>
                     <th>Fecha de nacimiento</th>                    
                     <th>Acciones</th>
                 </tr>
@@ -28,14 +28,19 @@
                     <td>{{usuario.country}}</td>
                     <td>{{usuario.phone}}</td>
                     <td>{{usuario.area_code}}</td>
-                    <td>{{usuario.birthdate}}</td>
-                    <router-link :to="{ name: 'EditUser', params:{id: usuario._id} }">
-                        Actualizar
-                    </router-link>
-                    <button class="btn waves-effect waves-light deep-purple darken-4">Eliminar
-                        <i class="material-icons">delete_forever</i>
-                    </button>
-                    
+                    <td >{{fechaNacimiento(usuario.birthdate)}}</td>
+                    <div class="row">
+                        <router-link :to="{ name: 'EditUser', params:{id: usuario._id} }" class="btn waves-effect waves-light green accent-2 col l12 m12 s12">
+                            Editar
+                            <i class="small material-icons">edit</i>                            
+                        </router-link>                                                
+                    </div>
+                    <div class="row">
+                        <button class="btn waves-effect waves-light red accent-4 col l12 m12 s12" v-on:click="deleteUser(usuario._id)">
+                            Eliminar
+                            <i class="small material-icons">delete_forever</i>
+                        </button>
+                    </div>
                 </tr>
             </tbody>
         </table>
@@ -44,6 +49,9 @@
 </template>
 
 <script>
+
+import moment from 'moment'
+
     export default {
         data() {
             return {
@@ -55,6 +63,11 @@
         },
         
         methods: {
+
+            fechaNacimiento: function (date) {
+                return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+            },       
+
             fetchUsers() {
                 this.axios.get('/user')
                     .then(res => {
@@ -62,12 +75,12 @@
                     })
                     .catch(err => console.log(err));                
             },
-            deleteuser(id) {                
+            deleteUser(id) {                
                 const response = confirm('¿Estas seguro de eliminar este Usuario?')
                 if(response){              
-                    this.axios.delete('/usuario/' + id)
+                    this.axios.delete('/user/' + id)
                     .then(res => {
-                        this.fetchItems();                                     
+                        this.fetchUsers();                                     
                     }) 
                     .catch (err => console.log(err));                   
                 }
