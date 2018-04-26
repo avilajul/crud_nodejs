@@ -70,7 +70,7 @@ router.put('/:id', (req, res, next) => {
 
 // elimina el dato usuario de la base de datos por el método PUT que recibe como parametro el id del usuario
 router.delete('/:id', (req, res, next) => {
-    User.findByIdAndRemove(req.params.id, function (err, usuario) {
+    User.findByIdAndRemove(req.params.id, function (err, user) {
         if(err) {            
             res.status(400).send('Se ha producido un error al eliminar el usuario');
         }
