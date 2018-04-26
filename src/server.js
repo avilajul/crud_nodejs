@@ -25,7 +25,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // routes
-app.use('/usuario', usuarioRoutes);
+app.use('/user', usuarioRoutes);
 
 
 // static files

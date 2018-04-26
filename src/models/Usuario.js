@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // Se crea el esquema Usuario
-const Usuario = new Schema({
+const User = new Schema({
     id: { type: Number},
     name: { type: String},
     last_name: { type: String},
@@ -15,8 +15,8 @@ const Usuario = new Schema({
     birthdate: { type: Date}
 
 },{
-    collection: 'usuarios'
+    collection: 'users'
 });
 
 // Exporta el modelo del esquema Usuario para ser usado en la aplicación
-module.exports = mongoose.model('Usuario', Usuario);
+module.exports = mongoose.model('User', User);

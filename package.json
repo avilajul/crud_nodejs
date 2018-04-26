@@ -4,7 +4,10 @@
   "description": "prueba_backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack",
+    "start": "node src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack:watch": "webpack -w"
   },
   "repository": {
     "type": "git",
@@ -23,5 +26,18 @@
     "express": "^4.16.3",
     "mongoose": "^5.0.16",
     "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "css-loader": "^0.28.11",
+    "vue": "^2.5.16",
+    "vue-axios": "^2.1.1",
+    "vue-loader": "^14.2.2",
+    "vue-router": "^3.0.1",
+    "vue-template-compiler": "^2.5.16",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
   }
 }
