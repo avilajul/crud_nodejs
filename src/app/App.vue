@@ -1,3 +1,7 @@
+<!--
+    Template en la cual se cargarán los componentes 
+    DisplayUsers y CreateUser
+-->
 <template>
     <div class="row">
         <div>
@@ -10,6 +14,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
                         <a>
+
                         <router-link :to="{name: 'CreateUser'}">
                             Crear usuario    
                         </router-link>                            
@@ -42,9 +47,10 @@
 </script>
 
 <script>
-        $(document).ready(function(){
-    $('.sidenav').sidenav();         
+/**
+ * script que carga la funcionalidad de la barra de navegación 
+ */
+    $(document).ready(function(){
+        $('.sidenav').sidenav();         
   });
-  
-  
 </script>

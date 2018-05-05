@@ -1,7 +1,15 @@
+<!-- 
+    Template para visualizar el formulario
+    de creación de usuario
+-->
 <template>
     <div class="row">
         <div class="col s12 m12 l12">
             <div class="card">
+                <!-- 
+                    formulario que captura los datos ingresados 
+                     y son eviados al método addUser 
+                -->
                 <form v-on:submit.prevent="addUser">
                 <div class="card-content">
                     <h4 class="center-align">Creación de Usuario</h4>                
@@ -75,12 +83,15 @@
                 </form>                              
             </div>
         </div>
-    </div>
-    
+    </div>    
 </template>
 
 <script>
 
+/**
+ * Importa componente Datapicker 
+ * para el campo fecha de nacimiento
+ */
 import DatePicker from 'vue2-datepicker'
 
     export default {
@@ -89,18 +100,23 @@ import DatePicker from 'vue2-datepicker'
 
         data() {
             return {
-                user: {},                    
-            shortcuts: [
-                {
-               
-                start: new Date(),
-                end: new Date()
-                }
-            ]                
+                user: {},   
+                shortcuts: [                    
+                    {
+                        start: new Date(),
+                        end: new Date()
+                    }
+                ]                
             }
         },
 
+        // Métodos del componente CreateUser
         methods: {
+            /**
+             * Método que envia los datos obtenidos en el formulario
+             * después de recibir respuesta redirecciona
+             * al componente DisplayUsers
+             */ 
             addUser() {
                 this.axios.post('/user', this.user)
                     .then(res => {
