@@ -1,7 +1,15 @@
+<!-- 
+    Template para visualizar el formulario
+    de edición de usuario
+-->
 <template>
     <div class="row">
         <div class="col s12 m12 l12">
             <div class="card">
+                <!-- 
+                    formulario que captura los datos del formulario 
+                     y son eviados al método updateUser 
+                -->
                 <form v-on:submit.prevent="updatedUser">
                 <div class="card-content">
                     <h4 class="center-align">Editar datos de Usuario</h4>                
@@ -72,6 +80,11 @@
 
 <script>
 
+/**
+ * Importa componente Datapicker 
+ * para el campo fecha de nacimiento
+ */
+
 import DatePicker from 'vue2-datepicker'
 
     export default {
@@ -96,7 +109,12 @@ import DatePicker from 'vue2-datepicker'
             this.getUser();
         },
 
+        // Métodos del componente Edituser
         methods: {
+            /**
+             * Método que obtiene los datos del usuario 
+             * de acuerdo al ID del usuario
+             */
             getUser() {
                 this.axios.get('/user/' + this.$route.params.id)
                     .then(res => {
@@ -104,7 +122,13 @@ import DatePicker from 'vue2-datepicker'
                         console.log(this.user);
                     });                
             },
-
+            /**
+             * Método que toma los datos del usuario
+             * y son enviados al verbo REST PUT
+             * para que se acutalice en la base de datos
+             * después de recibir respuesta redirecciona
+             * al componente DisplayUsers
+             */
             updatedUser() {
                 this.axios.put('/user/' + this.$route.params.id, this.user)
                     .then(res => {
@@ -113,7 +137,5 @@ import DatePicker from 'vue2-datepicker'
                     });
             }            
         }
-
-
     }
 </script>

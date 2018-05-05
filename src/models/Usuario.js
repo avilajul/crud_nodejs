@@ -1,7 +1,10 @@
+// importa el paquete mongoose para el modelado del objeto Usuario
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Se crea el esquema Usuario
+/**
+ * Se crea el esquema del modelo Usuario con sus propiedades 
+ */
 const User = new Schema({
     id: { type: Number},
     name: { type: String},

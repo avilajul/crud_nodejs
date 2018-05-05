@@ -1,3 +1,7 @@
+<!--
+    Template en que se visualizará el listado de los usuarios
+    registrados en la base de datos crud_usuarios
+-->
 <template>
     <div>
         <h3 class="center-align">Listado de usuarios</h3>
@@ -50,6 +54,10 @@
 
 <script>
 
+/**
+ * importa libreria moment.js
+ * para parsear y dar formato a las fechas
+ */
 import moment from 'moment'
 
     export default {
@@ -62,12 +70,13 @@ import moment from 'moment'
             this.fetchUsers();
         },
         
+        // métodos del componente DisplayUsers
         methods: {
 
             fechaNacimiento: function (date) {
                 return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
-            },       
-
+            },
+            
             fetchUsers() {
                 this.axios.get('/user')
                     .then(res => {
@@ -90,4 +99,3 @@ import moment from 'moment'
     }
 
 </script>
-
