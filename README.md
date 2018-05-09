@@ -23,7 +23,7 @@ Se abre una navegador y escribe la url http://localhost:3000
 - ![Listado_de_usuarios.png](Screenshoots/Listado_de_usuarios.png "Vista principal")
 
 - Creación de usuario
-- ![Creación_de_ Usuario.png](Screenshoots/Creación_de_ Usuario.png "Creación de usuario")
+- ![Creación_de_ Usuario.png](Screenshoots/Creación_de_Usuario.png "Creación de usuario")
 
 - Edición de usuario
 - ![Editar_Usuario.png](Screenshoots/Editar_Usuario.png "Edición de usuario")
