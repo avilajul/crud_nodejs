@@ -26,8 +26,10 @@
     "express": "^4.16.3",
     "moment": "^2.22.1",
     "mongoose": "^5.0.16",
-    "morgan": "^1.9.0",
-    "vue2-datepicker": "^1.9.6"
+    "morgan": "^1.9.1",
+    "vue2-datepicker": "^1.9.6",
+    "deep-extend": "^0.5.1",
+    "randomatic": "^3.0.0"
   },
   "devDependencies": {
     "axios": "^0.18.0",
